@@ -8,6 +8,7 @@ abstract class AppDimensions{
   static double quarterAndHalfScreenHeight (BuildContext context) => MediaQuery.sizeOf(context).height /4.5;
   static double oneFifthScreenHeight (BuildContext context) => MediaQuery.sizeOf(context).height / 5;
   static double oneSixthScreenHeight (BuildContext context) => MediaQuery.sizeOf(context).height / 6;
+  static double oneEighthScreenHeight (BuildContext context) => MediaQuery.sizeOf(context).height / 8;
   static double buttonWidth (BuildContext context) => MediaQuery.sizeOf(context).width / 1.5;
   static const double buttonHeight = 60;
   static const double textFieldPadding = 45;
@@ -19,4 +20,6 @@ abstract class AppDimensions{
   static const double smallPadding = 14;
   static const double mediumPadding = 25;
   static const double largePadding = 40;
+  static const double calenderRadius = 20;
+  static const double calenderTileWidth = 75;
 }

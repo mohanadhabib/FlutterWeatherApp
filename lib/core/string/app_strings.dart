@@ -14,5 +14,19 @@ abstract class AppStrings{
   static const String signUpSuccessful = "Sign Up Successful";
   static const String usersCollection = "Users";
   static const String userInfoSavedSuccessfully = "User Info Saved Successfully";
-
+  static const String userIdKey = "User Id Key";
+  static const String dataStoredSuccessfully = "Data Stored Successfully";
+  static const String dataStoredUnSuccessfully  = "Data Stored Unsuccessfully";
+  static const String locationServiceEnabled  = "Location services are enabled";
+  static const String locationServiceDisabled  = "Location services are disabled";
+  static const String locationPermissionAccepted = "Location permissions are accepted";
+  static const String locationPermissionDenied = "Location permissions are denied";
+  static const String longitude = "longitude";
+  static const String latitude = "latitude";
+  static const String apiKey = "6b0f434b56aa4e169be125637232508";
+  static const String baseUrl = "http://api.weatherapi.com/v1";
+  static const String endPoint = "/forecast.json";
+  static const String humidity = "Humidity";
+  static const String feelsLike = "Feels Like";
+  static const String pressure = "Pressure";
 }
