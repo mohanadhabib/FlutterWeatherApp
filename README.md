@@ -1,4 +1,4 @@
-# flutter_weather_app
+# Flutter Weather App
 
 A Weather App Made With Flutter.
 
