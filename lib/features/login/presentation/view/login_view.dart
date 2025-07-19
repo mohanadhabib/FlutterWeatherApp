@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/core/color/app_colors.dart';
 import 'package:flutter_weather_app/core/dimension/app_dimensions.dart';
+import 'package:flutter_weather_app/core/firebase/app_firebase.dart';
 import 'package:flutter_weather_app/core/string/app_strings.dart';
 import 'package:flutter_weather_app/core/validator/app_input_validator.dart';
 import 'package:flutter_weather_app/core/widget/app_main_button.dart';
@@ -124,12 +125,21 @@ class LoginView extends StatelessWidget {
                             AppMainButton(
                                 onPressed: () async{
                                  if(loginViewModel.formKey.currentState?.validate() == true){
-                                   String signInResult = await loginViewModel.signIn(
+                                   loginViewModel.signIn(
                                      email: loginViewModel.emailController.text,
                                      password : loginViewModel.passwordController.text
-                                   );
-                                   AppSnackBar.showSnackBar(context, signInResult);
-                                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView()));
+                                   ).then((loginStatus){
+                                     AppSnackBar.showSnackBar(context, loginStatus);
+                                     loginViewModel.storeUserIdInternally(
+                                         userId: AppFirebase.firebaseAuth.currentUser?.uid ?? " ",
+                                     ).then((isDataStored){
+                                       String dataStatus = isDataStored == true ? AppStrings.dataStoredSuccessfully : AppStrings.dataStoredUnSuccessfully;
+                                       AppSnackBar.showSnackBar(context, dataStatus);
+                                       if(isDataStored){
+                                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView()));
+                                       }
+                                     });
+                                   });
                                  }
                                 },
                                 buttonColor: AppColors.lightBlue,

@@ -13,6 +13,10 @@ class LoginViewModel extends ChangeNotifier{
     return _loginRepositoryImp.signIn(email: email,password: password);
   }
 
+  Future<bool> storeUserIdInternally({required String userId}){
+    return _loginRepositoryImp.storeUserIdInternally(userId: userId);
+  }
+
   void updateState(){
     notifyListeners();
   }

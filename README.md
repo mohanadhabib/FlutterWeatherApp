@@ -1,16 +1,14 @@
-# flutter_weather_app
+# Flutter Weather App
 
 A Weather App Made With Flutter.
 
-## Getting Started
+# Home Screen Video
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/user-attachments/assets/70f047fa-08ab-457a-8bfb-a4cb07723679
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="615" height="737" alt="screenshot 1" src="https://github.com/user-attachments/assets/92bee54b-f21b-4def-aff2-cc9dddd3d74d" />
+<img width="407" height="811" alt="screenshot 2" src="https://github.com/user-attachments/assets/5a944113-43a3-4cdc-8669-753707750e59" />
+<img width="407" height="807" alt="screenshot 3" src="https://github.com/user-attachments/assets/4c71a892-cafe-4aea-83c4-2cd395d100f4" />
+
