@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_weather_app/core/days_of_week/days_of_week.dart';
 import 'package:flutter_weather_app/core/string/app_strings.dart';
+import 'package:flutter_weather_app/features/home/data/model/current.dart';
 import 'package:flutter_weather_app/features/home/data/model/weather_result.dart';
 import 'package:flutter_weather_app/features/home/domain/use_case/home_use_case.dart';
 import 'package:geolocator/geolocator.dart';
@@ -11,6 +12,7 @@ class HomeViewModel extends ChangeNotifier {
   final List<String?> days = [daysMap[DateTime.now().weekday] , daysMap[DateTime.now().weekday + 1] , daysMap[DateTime.now().weekday + 2]];
   int currentDayIndex = 0;
   Position? currentLocation;
+  Current? weather;
 
 
   Future<String> checkServiceEnabled() async {
@@ -50,6 +52,10 @@ class HomeViewModel extends ChangeNotifier {
 
   Future<WeatherResult> getWeather(){
     return _homeUseCase.getWeather();
+  }
+
+  Future<String> getPrediction({required Current weather}){
+    return _homeUseCase.getPrediction(weather: weather);
   }
 
   void updateState(){

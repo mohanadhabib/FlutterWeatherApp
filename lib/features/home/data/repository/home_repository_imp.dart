@@ -18,5 +18,10 @@ class HomeRepositoryImp implements HomeRepository{
   Future<WeatherResult> getWeather() {
     return _homeDataSource.getWeather();
   }
+
+  @override
+  Future<String> getPrediction({required List<int> features}) {
+    return _homeDataSource.getPrediction(features: features);
+  }
   
 }

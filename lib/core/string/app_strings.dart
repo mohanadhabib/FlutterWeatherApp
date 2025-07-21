@@ -29,4 +29,9 @@ abstract class AppStrings{
   static const String humidity = "Humidity";
   static const String feelsLike = "Feels Like";
   static const String pressure = "Pressure";
+  static const String aiPredictionUrl = "http://10.0.2.2:5001/predict";
+  static const String couldNotGetPredictionNow = "Couldn't Get Prediction Now";
+  static const String pleaseWaitForWeatherForecast = "Please Wait For Weather Forecast";
+  static const String doNotPlayToday = "Don't Play Today";
+  static const String goToPlayToday = "Go To Play Today !!";
 }

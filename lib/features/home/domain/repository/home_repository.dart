@@ -4,4 +4,5 @@ abstract class HomeRepository {
   Future<String> getUserName();
   Future<String> storeUserLocation({required double longitude, required double latitude});
   Future<WeatherResult> getWeather();
+  Future<String> getPrediction({required List<int> features});
 }
