@@ -12,3 +12,10 @@ https://github.com/user-attachments/assets/70f047fa-08ab-457a-8bfb-a4cb07723679
 <img width="407" height="811" alt="screenshot 2" src="https://github.com/user-attachments/assets/5a944113-43a3-4cdc-8669-753707750e59" />
 <img width="407" height="807" alt="screenshot 3" src="https://github.com/user-attachments/assets/4c71a892-cafe-4aea-83c4-2cd395d100f4" />
 
+# AI Prediction Video
+
+
+
+https://github.com/user-attachments/assets/1ba9bb2f-b05b-473f-b360-7dcb606b60bc
+
+<img width="417" height="841" alt="app_screenshot" src="https://github.com/user-attachments/assets/fd756f39-26c1-4907-b46e-35ed07c20ef2" />

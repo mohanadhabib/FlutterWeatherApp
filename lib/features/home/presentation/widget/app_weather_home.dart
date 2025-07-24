@@ -54,6 +54,7 @@ class AppWeatherHome extends StatelessWidget {
           height: AppDimensions.largePadding,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
@@ -78,13 +79,6 @@ class AppWeatherHome extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-        ),
-        SizedBox(
-          height: AppDimensions.largePadding,
-        ),
-        Row(
-          children: [
             Column(
               children: [
                 Text(
@@ -107,13 +101,14 @@ class AppWeatherHome extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            )
           ],
         ),
         SizedBox(
           height: AppDimensions.largePadding,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
               children: [

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/core/color/app_colors.dart';
 import 'package:flutter_weather_app/core/dimension/app_dimensions.dart';
 import 'package:flutter_weather_app/core/string/app_strings.dart';
+import 'package:flutter_weather_app/core/widget/app_main_button.dart';
 import 'package:flutter_weather_app/core/widget/app_snack_bar.dart';
+import 'package:flutter_weather_app/features/home/data/model/current.dart';
 import 'package:flutter_weather_app/features/home/presentation/widget/app_weather_calender.dart';
 import 'package:flutter_weather_app/features/home/presentation/widget/app_weather_home.dart';
 import 'package:flutter_weather_app/features/home/presentation/view_model/home_view_model.dart';
@@ -108,6 +110,7 @@ class HomeView extends StatelessWidget {
                   String feelsLike = "";
                   String pressureMb = "";
                   if(homeViewModel.currentDayIndex == 0){
+                    homeViewModel.weather = snapshot.data?.current;
                     temp = snapshot.data?.current?.tempC.toString() ?? "";
                     condition = snapshot.data?.current?.condition?.text ?? "";
                     humidity = snapshot.data?.current?.humidity.toString() ?? "";
@@ -116,6 +119,7 @@ class HomeView extends StatelessWidget {
                     homeViewModel.updateState();
                   }
                   else if(homeViewModel.currentDayIndex == 1){
+                    homeViewModel.weather = snapshot.data?.forecast?.forecastDay?[1].hour?[0];
                     temp = snapshot.data?.forecast?.forecastDay?[1].hour?[0].tempC.toString() ?? "" ;
                     condition = snapshot.data?.forecast?.forecastDay?[1].hour?[0].condition?.text ?? "";
                     humidity = snapshot.data?.forecast?.forecastDay?[1].hour?[0].humidity.toString() ?? "";
@@ -124,6 +128,7 @@ class HomeView extends StatelessWidget {
                     homeViewModel.updateState();
                   }
                   else if(homeViewModel.currentDayIndex == 2){
+                    homeViewModel.weather = snapshot.data?.forecast?.forecastDay?[2].hour?[0];
                     temp = snapshot.data?.forecast?.forecastDay?[2].hour?[0].tempC.toString() ?? "" ;
                     condition = snapshot.data?.forecast?.forecastDay?[2].hour?[0].condition?.text ?? "";
                     humidity = snapshot.data?.forecast?.forecastDay?[2].hour?[0].humidity.toString() ?? "";
@@ -140,6 +145,37 @@ class HomeView extends StatelessWidget {
                   );
                 }
               ),
+              SizedBox(
+                height: AppDimensions.mediumPadding,
+              ),
+              Center(
+                child: AppMainButton(
+                    onPressed: () async{
+                      if(homeViewModel.weather == null){
+                        AppSnackBar.showSnackBar(context, AppStrings.pleaseWaitForWeatherForecast);
+                      }
+                      else {
+                        Current weather = homeViewModel.weather!;
+                        String result = await homeViewModel.getPrediction(weather: weather);
+                        String aiResponse;
+                        if(result == "0"){
+                          aiResponse = AppStrings.doNotPlayToday;
+                        }
+                        else if(result == "1") {
+                          aiResponse = AppStrings.goToPlayToday;
+                        }
+                        else {
+                          aiResponse = result;
+                        }
+                        AppSnackBar.showSnackBar(context, aiResponse);
+                      }
+                    },
+                    buttonColor: AppColors.lightBlue,
+                    text: "Get Prediction",
+                    textColor: AppColors.white,
+                    fontSize: AppDimensions.mediumTextSize,
+                    fontWeight: FontWeight.bold),
+              )
             ],
           ),
         ),

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_weather_app/core/firebase/app_firebase.dart';
 import 'package:flutter_weather_app/core/shared_preferences/app_shared_preferences.dart';
@@ -47,5 +46,27 @@ class HomeDataSource {
     final json = jsonDecode(response.body) as Map<String,dynamic>;
     final weatherResult = WeatherResult.fromJson(json);
     return weatherResult;
+  }
+
+  Future<String> getPrediction({required List<int> features}) async {
+    final url = Uri.parse(AppStrings.aiPredictionUrl);
+
+    Map<String, dynamic> body = {
+      'features': features
+    };
+
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(body),
+    );
+
+    if (response.statusCode == 200) {
+      final prediction = jsonDecode(response.body)['prediction'];
+      return prediction[0].toString();
+    }
+    else{
+      return AppStrings.couldNotGetPredictionNow;
+    }
   }
 }
